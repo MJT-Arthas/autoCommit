@@ -24,6 +24,26 @@
     //   "preLaunchTask": "npm: watch"
     // }
     {
+      "type": "node",
+      "request": "launch",
+      "name": "启动程序", // 调试界面的名称
+      // 运行项目下的这个文件：
+      "program": "${workspaceFolder}/webpack.config.js",
+      "args": [] // node 文件的参数
+    },
+    {
+      "name": "Launch via NPM",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run-script",
+        "debug" //这里的dev就对应package.json中的scripts中的dev
+      ],
+      "port": 5858 //这个端口是调试的端口，不是项目启动的端口
+    },
+
+    {
       "name": "Run Extension",
       "type": "extensionHost",
       "request": "launch",

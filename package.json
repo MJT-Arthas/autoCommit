@@ -8,6 +8,8 @@
     "build": "vsce package",
     "vscode:prepublish": "webpack --mode production",
     "compile": "webpack --mode none",
+    "debug": "node --inspect-brk=5858 ./node_modules/webpack/bin/webpack --mode none --watch",
+    "koro": "node --inspect-brk=5858 ./node_modules/webpack/bin/webpack",
     "watch": "webpack --mode none --watch",
     "pretest": "npm run compile",
     "postinstall": "node ./node_modules/vscode/bin/install",

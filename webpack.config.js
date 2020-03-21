@@ -2,24 +2,25 @@
  * Author       : OBKoro1
  * Date         : 2019-12-26 17:42:32
  * LastEditors  : OBKoro1
- * LastEditTime : 2019-12-26 20:58:58
+ * LastEditTime : 2020-03-16 18:22:57
  * FilePath     : /autoCommit/webpack.config.js
  * Description  : webpack 配置
  * https://github.com/OBKoro1
  */
 
-
 //@ts-check
 
-'use strict'
+'use strict';
 
-const path = require('path')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const outputPathName = 'out'
+const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const outputPathName = 'out';
+const testPlugin = require('./testPlugin');
+console.log('testPlugin', testPlugin);
 
 const pathResolve = p => {
-  return path.resolve(__dirname, p)
-}
+  return path.resolve(__dirname, p);
+};
 
 /**@type {import('webpack').Configuration}*/
 const config = {
@@ -58,6 +59,7 @@ const config = {
     ]
   },
   plugins: [
+    new testPlugin('啦啦啦'),
     new CopyWebpackPlugin([
       {
         from: pathResolve('src/views'),
@@ -71,6 +73,6 @@ const config = {
       }
     ])
   ]
-}
+};
 
-module.exports = config
+module.exports = config;
